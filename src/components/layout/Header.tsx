@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Package, Plane, Truck, Phone } from "lucide-react";
+import { Menu, X, Package } from "lucide-react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,16 +25,16 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
             <div className="relative">
-              <div className="w-10 h-10 md:w-12 md:h-12 gradient-priority rounded-lg flex items-center justify-center glow-red group-hover:glow-cyan transition-all duration-300">
+              <div className="w-10 h-10 md:w-12 md:h-12 bg-primary rounded-lg flex items-center justify-center shadow-md group-hover:shadow-lg transition-all duration-300">
                 <span className="text-primary-foreground font-heading font-bold text-lg md:text-xl">SN</span>
               </div>
-              <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-accent rounded-full animate-pulse" />
+              <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-secondary rounded-full" />
             </div>
             <div className="hidden sm:block">
               <p className="font-heading font-bold text-foreground text-sm md:text-base leading-tight">
                 Supreme Nepal
               </p>
-              <p className="text-[10px] md:text-xs text-accent uppercase tracking-widest">
+              <p className="text-[10px] md:text-xs text-primary uppercase tracking-widest">
                 Courier & Cargo
               </p>
             </div>
@@ -48,7 +48,7 @@ const Header = () => {
                 to={link.href}
                 className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
                   isActive(link.href)
-                    ? "text-accent bg-accent/10"
+                    ? "text-primary bg-primary/10"
                     : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                 }`}
               >
@@ -75,7 +75,7 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 text-foreground hover:text-accent transition-colors"
+            className="lg:hidden p-2 text-foreground hover:text-primary transition-colors"
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -94,7 +94,7 @@ const Header = () => {
                   onClick={() => setIsMenuOpen(false)}
                   className={`px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
                     isActive(link.href)
-                      ? "text-accent bg-accent/10"
+                      ? "text-primary bg-primary/10"
                       : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                   }`}
                 >

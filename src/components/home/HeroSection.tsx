@@ -21,18 +21,18 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-background">
         <div className="absolute inset-0 route-grid" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background" />
-        {/* Animated Gradient Orbs */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-secondary/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse delay-1000" />
+        {/* Color Orbs - Solid colors */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-secondary/15 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary/10 rounded-full blur-3xl" />
       </div>
 
       <div className="container mx-auto px-4 py-20 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/30 text-accent text-sm font-medium mb-8 animate-fade-up">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 border border-secondary/30 text-secondary text-sm font-medium mb-8 animate-fade-up">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
             </span>
             Global Logistics Network Active
           </div>
@@ -41,7 +41,7 @@ const HeroSection = () => {
           <h1 className="text-4xl sm:text-5xl md:text-hero font-heading font-bold mb-6 animate-fade-up" style={{ animationDelay: "0.1s" }}>
             <span className="text-foreground">Move Faster.</span>
             <br />
-            <span className="gradient-velocity-text">Deliver Smarter.</span>
+            <span className="text-primary">Deliver Smarter.</span>
           </h1>
 
           {/* Subheading */}
@@ -59,7 +59,7 @@ const HeroSection = () => {
                   placeholder="Enter tracking number or HAWB..."
                   value={trackingNumber}
                   onChange={(e) => setTrackingNumber(e.target.value)}
-                  className="pl-12 h-14 bg-card/80 border-border/50 text-foreground placeholder:text-muted-foreground text-base rounded-xl focus:ring-2 focus:ring-accent focus:border-accent"
+                  className="pl-12 h-14 bg-card/80 border-secondary/30 text-foreground placeholder:text-muted-foreground text-base rounded-xl focus:ring-2 focus:ring-secondary focus:border-secondary"
                 />
               </div>
               <Button type="submit" variant="hero" size="xl" className="rounded-xl">
@@ -77,7 +77,7 @@ const HeroSection = () => {
               { value: "99.8%", label: "On-Time Rate" },
             ].map((stat, i) => (
               <div key={i} className="text-center">
-                <p className="text-2xl md:text-3xl font-heading font-bold text-accent tabular-nums">{stat.value}</p>
+                <p className="text-2xl md:text-3xl font-heading font-bold text-primary tabular-nums">{stat.value}</p>
                 <p className="text-sm text-muted-foreground mt-1">{stat.label}</p>
               </div>
             ))}
@@ -91,10 +91,10 @@ const HeroSection = () => {
               { Icon: Truck, label: "Ground Transport" },
             ].map(({ Icon, label }, i) => (
               <div key={i} className="group flex flex-col items-center gap-2 cursor-pointer">
-                <div className="w-14 h-14 rounded-xl bg-muted/50 flex items-center justify-center text-muted-foreground group-hover:bg-accent/10 group-hover:text-accent transition-all duration-300">
+                <div className="w-14 h-14 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-secondary-foreground transition-all duration-300">
                   <Icon className="w-6 h-6" />
                 </div>
-                <span className="text-xs text-muted-foreground group-hover:text-accent transition-colors">{label}</span>
+                <span className="text-xs text-muted-foreground group-hover:text-secondary transition-colors">{label}</span>
               </div>
             ))}
           </div>
