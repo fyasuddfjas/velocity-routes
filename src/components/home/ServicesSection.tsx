@@ -1,27 +1,27 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Plane, Ship, Truck, Package, Globe, Clock, ArrowRight, Shield } from "lucide-react";
+import { Plane, Ship, Truck, Package, Globe, Shield, ArrowRight } from "lucide-react";
 
 const services = [
   {
     icon: Plane,
     title: "Air Freight",
     description: "Express air cargo solutions with global reach. Fast, reliable, and tracked every mile.",
-    color: "accent",
+    color: "secondary",
     href: "/services#air",
   },
   {
     icon: Ship,
     title: "Sea Freight",
     description: "Cost-effective ocean shipping for bulk cargo. FCL and LCL options available.",
-    color: "secondary",
+    color: "primary",
     href: "/services#sea",
   },
   {
     icon: Truck,
     title: "Ground Transport",
     description: "Comprehensive road freight and last-mile delivery across the region.",
-    color: "success",
+    color: "secondary",
     href: "/services#ground",
   },
   {
@@ -35,14 +35,14 @@ const services = [
     icon: Globe,
     title: "International",
     description: "Seamless cross-border logistics with customs clearance support.",
-    color: "accent",
+    color: "secondary",
     href: "/services#international",
   },
   {
     icon: Shield,
     title: "Secure Handling",
     description: "Specialized handling for high-value and fragile shipments.",
-    color: "warning",
+    color: "primary",
     href: "/services#secure",
   },
 ];
@@ -53,7 +53,7 @@ const ServicesSection = () => {
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-accent/10 border border-accent/30 text-accent text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-secondary/10 border border-secondary/30 text-secondary text-sm font-medium mb-4">
             Our Services
           </span>
           <h2 className="text-3xl md:text-h2 font-heading font-bold text-foreground mb-4">
@@ -70,24 +70,26 @@ const ServicesSection = () => {
             <Link
               key={i}
               to={service.href}
-              className="group relative p-6 rounded-xl bg-card border border-border/50 hover:border-accent/50 transition-all duration-300 hover:shadow-glow"
+              className="group relative p-6 rounded-xl bg-card border border-border/50 hover:border-secondary/50 transition-all duration-300 hover:shadow-lg"
             >
-              {/* Gradient Bar */}
-              <div className="absolute top-0 left-0 right-0 h-1 gradient-velocity rounded-t-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+              {/* Top Bar */}
+              <div className={`absolute top-0 left-0 right-0 h-1 rounded-t-xl opacity-0 group-hover:opacity-100 transition-opacity ${
+                service.color === "primary" ? "bg-primary" : "bg-secondary"
+              }`} />
               
               {/* Icon */}
               <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-5 transition-all duration-300 ${
-                service.color === "accent" ? "bg-accent/10 text-accent group-hover:bg-accent/20" :
-                service.color === "secondary" ? "bg-secondary/10 text-secondary group-hover:bg-secondary/20" :
-                service.color === "success" ? "bg-success/10 text-success group-hover:bg-success/20" :
-                service.color === "primary" ? "bg-primary/10 text-primary group-hover:bg-primary/20" :
-                "bg-warning/10 text-warning group-hover:bg-warning/20"
+                service.color === "primary" 
+                  ? "bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground" 
+                  : "bg-secondary/10 text-secondary group-hover:bg-secondary group-hover:text-secondary-foreground"
               }`}>
                 <service.icon className="w-6 h-6" />
               </div>
 
               {/* Content */}
-              <h3 className="text-lg font-heading font-semibold text-foreground mb-2 group-hover:text-accent transition-colors">
+              <h3 className={`text-lg font-heading font-semibold text-foreground mb-2 transition-colors ${
+                service.color === "primary" ? "group-hover:text-primary" : "group-hover:text-secondary"
+              }`}>
                 {service.title}
               </h3>
               <p className="text-muted-foreground text-sm leading-relaxed">
@@ -95,7 +97,9 @@ const ServicesSection = () => {
               </p>
 
               {/* Arrow */}
-              <div className="mt-4 flex items-center gap-2 text-accent opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-0 group-hover:translate-x-1">
+              <div className={`mt-4 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-0 group-hover:translate-x-1 ${
+                service.color === "primary" ? "text-primary" : "text-secondary"
+              }`}>
                 <span className="text-sm font-medium">Learn more</span>
                 <ArrowRight className="w-4 h-4" />
               </div>

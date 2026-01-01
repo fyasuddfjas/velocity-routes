@@ -58,10 +58,10 @@ const WhyChooseSection = () => {
           {features.map((feature, i) => (
             <div
               key={i}
-              className="group flex gap-5 p-6 rounded-xl bg-background/50 border border-border/30 hover:border-accent/30 transition-all duration-300"
+              className="group flex gap-5 p-6 rounded-xl bg-background/50 border border-border/30 hover:border-primary/30 transition-all duration-300"
             >
-              <div className="w-12 h-12 shrink-0 rounded-lg gradient-velocity flex items-center justify-center group-hover:glow-cyan transition-all duration-300">
-                <feature.icon className="w-5 h-5 text-primary-foreground" />
+              <div className="w-12 h-12 shrink-0 rounded-lg bg-secondary flex items-center justify-center group-hover:bg-primary transition-all duration-300">
+                <feature.icon className="w-5 h-5 text-secondary-foreground" />
               </div>
               <div>
                 <h3 className="text-lg font-heading font-semibold text-foreground mb-2">
